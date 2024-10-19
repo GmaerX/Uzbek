@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('@/assets/fonts/Ubuntu-Regular.woff') format('woff'),
+    url('@/assets/fonts/Ubuntu-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('@/assets/fonts/Ubuntu-Medium.woff') format('woff'),
+    url('@/assets/fonts/Ubuntu-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('@/assets/fonts/Gilroy-Regular.woff') format('woff'),
+    url('@/assets/fonts/Ubuntu-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('@/assets/fonts/Gilroy-Medium.woff') format('woff'),
+    url('@/assets/fonts/Ubuntu-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+    color: #333333;
+}
+.font-gilroy {
+    font-family: 'Gilroy', sans-serif;
+    color: #333333;
+}
+/* Стили для WebKit-браузеров (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px; /* Ширина скроллбара */
+    height: 12px; /* Для горизонтального скроллбара */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Цвет дорожки */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0072AB; /* Цвет ползунка */
+    border-radius: 10px; /* Закругленные углы */
+    border: 3px solid #f1f1f1; /* Оставляем небольшое расстояние */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #005f8c; /* Цвет ползунка при наведении */
+}
+
+/* Стили для Firefox */
+html {
+    scrollbar-color: #0072AB #f1f1f1; /* Цвет ползунка и дорожки */
+    scrollbar-width: thin; /* Толщина скроллбара */
+}

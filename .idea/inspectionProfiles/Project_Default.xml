@@ -1,0 +1,23 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="telebot" />
+          <option value="bot.commands" />
+          <option value="wikipedia" />
+          <option value="bot.content" />
+          <option value="bot.mess_wikipedia" />
+          <option value="requests" />
+          <option value="main.bs4" />
+          <option value="lesson_8.lesson_8.selenium" />
+          <option value="lesson_2.lesson2.selenium" />
+          <option value="lesson_3.lesson3.selenium" />
+          <option value="lesson_4.lesson4.selenium" />
+          <option value="urllib2" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
