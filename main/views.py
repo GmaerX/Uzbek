@@ -1,10 +1,26 @@
-
+import datetime
 from django.http import JsonResponse
 
 from main.models import Language, Navbar, Information, Contact, News, Donate, JoinToGroup
 
 
 def main_page(request):
+    
+    if request.POST:
+        print(request.POST)
+        join = JoinToGroup()
+        join.name = request.POST.get('name', '')
+        join.iin = request.POST.get('message', '')
+        join.phone_number = request.POST.get('phone', '')
+        join.status = int(request.POST.get('status', 0))
+        date_birth_str = request.POST.get('date_birth', '')
+        if date_birth_str:
+            join.date_birth = datetime.strptime(date_birth_str, '%Y-%m-%d').date()  # Преобразуем строку в дату
+
+        join.save()
+        join.save()
+    
+    
     languages = Language.objects.filter(status=0).values('kod', 'title', 'status')
     navbar = Navbar.objects.filter(status=0).values('title', 'language', 'child_navbars', 'status')
     information = Information.objects.filter(status=0).values('language', 'title', 'full_desc', 'mini_desc', 'image', 'job', 'pdf', 'qr', 'status')

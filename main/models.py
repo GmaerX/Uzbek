@@ -11,7 +11,6 @@ class Language(models.Model):
     def __str__(self):
         return self.title
 
-
 class Navbar(models.Model):
     title = models.CharField(max_length=200)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, blank=True, null=True)
@@ -84,6 +83,7 @@ class JoinToGroup(models.Model):
     date_birth = models.DateField(default=date.today, blank=True)
     phone_number = models.CharField(max_length=200)
     status = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.name
