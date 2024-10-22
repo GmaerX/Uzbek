@@ -72,6 +72,7 @@ class Donate(models.Model):
     cvv = models.IntegerField(default=0)
     price = models.IntegerField(default=0)
     accept = models.BooleanField(default=False)
+    status = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.price)
@@ -92,9 +93,12 @@ class JoinToGroup(models.Model):
 
 class Region(models.Model):
     kod = models.CharField(max_length=200, blank=True)
-    desc = models.TextField(blank=True)
-    longitude = models.CharField(max_length=200, blank=True)
-    latitude = models.CharField(max_length=200, blank=True)
+    title = models.CharField(max_length=200, blank=True)
+    mini_desc = models.CharField(max_length=200, blank=True)
+    full_desc = models.TextField(blank=True)
+    image = models.ImageField(upload_to='upload', blank=True)
+    longitude = models.CharField(max_length=200, blank=True)  # долгота
+    latitude = models.CharField(max_length=200, blank=True)   # широта
 
     def __str__(self):
         return self.kod

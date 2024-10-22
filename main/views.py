@@ -12,14 +12,11 @@ def main_page(request):
         join.name = request.POST.get('name', '')
         join.iin = request.POST.get('message', '')
         join.phone_number = request.POST.get('phone', '')
-        join.status = int(request.POST.get('status', 0))
         date_birth_str = request.POST.get('date_birth', '')
         if date_birth_str:
             join.date_birth = datetime.strptime(date_birth_str, '%Y-%m-%d').date()  # Преобразуем строку в дату
 
         join.save()
-        join.save()
-    
     
     languages = Language.objects.filter(status=0).values('kod', 'title', 'status')
     navbar = Navbar.objects.filter(status=0).values('title', 'language', 'child_navbars', 'status')
@@ -90,6 +87,29 @@ def press_sent(request):
 
 
 def contacts(request):
+    contact = Contact.objects.filter(status=0).values('language', 'address', 'phone1', 'phone2', 'email', 'status', 'instagram', 'telegram', 'youtube', 'whatsapp')
+    navbar = Navbar.objects.filter(status=0).values('title', 'language', 'child_navbars', 'status')
+    return JsonResponse(
+        {
+            'navbar': list(navbar),
+            'contact': list(contact)
+        }
+    )
+
+def donate(request):
+
+    if request.POST:
+        print(request.POST)
+        donate = Donate()
+        donate.number_card = request.POST.get('number_card', '')
+        donate.name_card = request.POST.get('name_card', '')
+        donate.cvv = int(request.POST.get('cvv', 0))
+        donate.price = int(request.POST.get('price', 0))
+        donate.accept = request.POST.get('accept', False)
+        donate.save()
+
+
+
     contact = Contact.objects.filter(status=0).values('language', 'address', 'phone1', 'phone2', 'email', 'status', 'instagram', 'telegram', 'youtube', 'whatsapp')
     navbar = Navbar.objects.filter(status=0).values('title', 'language', 'child_navbars', 'status')
     return JsonResponse(
